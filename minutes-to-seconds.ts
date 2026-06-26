@@ -1,1 +1,1 @@
-export const minutesToSeconds = (m: number) => m * 6;
+export const minutesToSeconds = (m: number) => m * 60;
