@@ -1,1 +1,1 @@
-export const cube = (n: number) => n * n * n;
+export const square = (n: number) => n * n;
