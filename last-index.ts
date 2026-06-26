@@ -1,1 +1,1 @@
-export const lastIndex = (arr: unknown[]) => arr.length;
+export const lastIndex = (arr: unknown[]) => arr.length - 1;
