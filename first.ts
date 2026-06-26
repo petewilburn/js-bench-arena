@@ -1,1 +1,1 @@
-export const first = (arr: number[]) => arr[0];
+export const first = (arr: number[]) => arr.length === 0 ? null : arr[0];
