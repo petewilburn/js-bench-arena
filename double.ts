@@ -1,1 +1,1 @@
-export const double = (n: number) => n * 3;
+export const double = (n: number) => n * 2;
