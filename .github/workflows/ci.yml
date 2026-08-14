@@ -1,9 +1,10 @@
-# The arena CI (Jelby E.7 live gate): run ONE seeded fixture so a failure surfaces as a single,
-# clean WorkUnit. On failure, emit the FAILED_TEST::<file> marker Jelby's poll scrapes from the
-# job log (the default JELBY_CI_MARKER). GitHub-hosted runner -- no homelab contention.
+# The arena CI (the Jelby E.7 live gate, retired to on-demand): ONE seeded fixture per run. Merging
+# the Jelby fix PR for the target makes main green. On failure, the FAILED_TEST::<file> marker is
+# emitted for Jelby's poll (the default JELBY_CI_MARKER). GitHub-hosted runner.
 name: CI
 on:
   push:
+    branches: [main]  # main-only: fix-PR branches must not re-run the seeded harness (or re-mint fixes)
   workflow_dispatch:
 jobs:
   test:
@@ -16,9 +17,9 @@ jobs:
       - run: npm ci
       - name: vitest (seeded target)
         run: |
-          if npx vitest run first.test.ts; then
+          if npx vitest run double.test.ts; then
             echo "seeded target passes"
           else
-            echo "FAILED_TEST::first.test.ts"
+            echo "FAILED_TEST::double.test.ts"
             exit 1
           fi
