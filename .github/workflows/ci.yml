@@ -16,9 +16,9 @@ jobs:
       - run: npm ci
       - name: vitest (seeded target)
         run: |
-          if npx vitest run double.test.ts; then
+          if npx vitest run first.test.ts; then
             echo "seeded target passes"
           else
-            echo "FAILED_TEST::double.test.ts"
+            echo "FAILED_TEST::first.test.ts"
             exit 1
           fi
