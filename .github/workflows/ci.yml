@@ -1,0 +1,24 @@
+# The arena CI (Jelby E.7 live gate): run ONE seeded fixture so a failure surfaces as a single,
+# clean WorkUnit. On failure, emit the FAILED_TEST::<file> marker Jelby's poll scrapes from the
+# job log (the default JELBY_CI_MARKER). GitHub-hosted runner -- no homelab contention.
+name: CI
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: vitest (seeded target)
+        run: |
+          if npx vitest run add.test.ts; then
+            echo "seeded target passes"
+          else
+            echo "FAILED_TEST::add.test.ts"
+            exit 1
+          fi
