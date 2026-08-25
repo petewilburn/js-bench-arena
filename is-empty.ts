@@ -1,1 +1,1 @@
-export const isEmpty = (arr: unknown[]) => arr.length > 0;
+export const isEmpty = (arr: unknown[]) => arr.length === 0;
