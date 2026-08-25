@@ -1,1 +1,1 @@
-export const shout = (s: string) => s + '!';
+export const shout = (s: string) => s.toUpperCase() + '!';
