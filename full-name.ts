@@ -1,1 +1,1 @@
-export const fullName = (first: string, last: string) => last + ' ' + first;
+export const fullName = (first: string, last: string) => first + ' ' + last;
