@@ -1,1 +1,1 @@
-export const unique = (arr: number[]) => arr;
+export const unique = (arr: number[]) => [...new Set(arr)];
