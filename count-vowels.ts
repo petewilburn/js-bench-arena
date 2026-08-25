@@ -1,1 +1,1 @@
-export const countVowels = (s: string) => (s.match(/[aeio]/g) || []).length;
+export const countVowels = (s: string) => (s.match(/[aeiou]/g) || []).length;
