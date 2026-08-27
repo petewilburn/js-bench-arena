@@ -17,9 +17,9 @@ jobs:
       - run: npm ci
       - name: vitest (seeded target)
         run: |
-          if npx vitest run to-cents.test.ts; then
+          if npx vitest run minutes-to-seconds.test.ts; then
             echo "seeded target passes"
           else
-            echo "FAILED_TEST::to-cents.test.ts"
+            echo "FAILED_TEST::minutes-to-seconds.test.ts"
             exit 1
           fi
